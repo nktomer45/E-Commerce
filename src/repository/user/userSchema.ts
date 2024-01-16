@@ -1,10 +1,11 @@
 import { Schema } from 'mongoose';
+import IUser from './IUserModel';
 
-export default class userSchema extends Schema {
+export default class userSchema extends Schema<IUser> {
     constructor(collection: any) {
         const user = Object.assign({
             id:{
-                required:true,
+                required:false,
                 type: String
             },
             name: {
@@ -21,7 +22,7 @@ export default class userSchema extends Schema {
             },
             createdAt: {
                 default: Date.now(),
-                required: true,
+                required:false,
                 type: Date,
             },
             modifiedAt: {
@@ -29,14 +30,14 @@ export default class userSchema extends Schema {
                 required: false,
                 type: Date,
             },
-            address: {
-                required: false,
-                type: String
-            },
             isActive:{
-                default :true,
+                // default :true,
                 required:true,
                 type:Boolean
+            },
+            avatar:{
+                required:false,
+                type:String
             }
         })
 

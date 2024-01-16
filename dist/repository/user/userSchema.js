@@ -5,7 +5,7 @@ class userSchema extends mongoose_1.Schema {
     constructor(collection) {
         const user = Object.assign({
             id: {
-                required: true,
+                required: false,
                 type: String
             },
             name: {
@@ -22,7 +22,7 @@ class userSchema extends mongoose_1.Schema {
             },
             createdAt: {
                 default: Date.now(),
-                required: true,
+                required: false,
                 type: Date,
             },
             modifiedAt: {
@@ -30,14 +30,14 @@ class userSchema extends mongoose_1.Schema {
                 required: false,
                 type: Date,
             },
-            address: {
-                required: false,
-                type: String
-            },
             isActive: {
-                default: true,
+                // default :true,
                 required: true,
                 type: Boolean
+            },
+            avatar: {
+                required: false,
+                type: String
             }
         });
         super(user, collection);
